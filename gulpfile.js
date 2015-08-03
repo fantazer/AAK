@@ -4,12 +4,8 @@ var gulp = require("gulp"),
     useref = require('gulp-useref'),
     gulpif = require('gulp-if'),
     uglify = require('gulp-uglify'),
-    minifyCss = require('gulp-minify-css'),
-    imagemin = require('gulp-imagemin'),
-    pngquant = require('imagemin-pngquant'),
-    imageminJpegtran = require('imagemin-jpegtran'),
-    jpegoptim = require('imagemin-jpegoptim'),
-    imageminMozjpeg = require('imagemin-mozjpeg');
+    minifyCss = require('gulp-minify-css');
+    
  
 //Prefix my css
 gulp.task('prefix', function () {
@@ -45,11 +41,28 @@ gulp.task('imageJpg',function(){
 
 //wiredep
 gulp.task('bower', function () {
+    
   gulp.src('./app/index.html')
     .pipe(wiredep({
-      'directory' : "app/bower/"
-    }))
-    .pipe(gulp.dest('./app'));
+      'directory' : "app/bower/",
+        "overrides":{
+            "bootstrap":{
+                "main":[
+                "./dist/css/bootstrap.min.css",
+                "./dist/js/bootstrap.min.js"
+
+                ]
+            },
+            "owlcar":{
+                "main":[
+                "./owl-carousel/owl.carousel.css",
+                "./owl-carousel/owl.carousel.min.js"
+
+                ]
+            }
+        }
+        }))
+        .pipe(gulp.dest('./app'));
 });
 
 //useref
