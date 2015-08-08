@@ -4,7 +4,9 @@ var gulp = require("gulp"),
     useref = require('gulp-useref'),
     gulpif = require('gulp-if'),
     uglify = require('gulp-uglify'),
-    minifyCss = require('gulp-minify-css');
+    minifyCss = require('gulp-minify-css'),
+    imagemin = require('gulp-imagemin'),
+    pngquant = require('imagemin-pngquant');
     
  
 //Prefix my css
@@ -68,7 +70,8 @@ gulp.task('bower', function () {
 //useref
 gulp.task('html', function () {
     var assets = useref.assets();
-    
+     gulp.src('app/js/*.js')
+    .pipe(gulp.dest('dist/js/'));
     return gulp.src('app/*.html')
         .pipe(assets)
         .pipe(gulpif('*.js', uglify()))
@@ -77,6 +80,8 @@ gulp.task('html', function () {
         .pipe(useref())
         .pipe(gulp.dest('dist'));
 });
+
+
 
 
 //default
