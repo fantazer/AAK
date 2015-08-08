@@ -2,42 +2,35 @@
 
 /* Large Devices, Wide Screens */
 @media only screen and (max-width : 1200px) {
-
+	.slider-sale .h2{
+		font-size: 22px;
+	}
+	.slider-sale {
+		height: 270px;
+		padding: 10px 20px;
+	}
 }
 
 /* Medium Devices, Desktops */
 @media only screen and (max-width : 992px) {
-
-	.sell_right .button {
-		margin: 15px auto;
-		float: none;
-		max-width: 250px;
-	}
-	.sell_descr {
-		text-align: center;
-	}
-
-	.maian_mnu ul {
-		background-color: #3797bf;
-		display: none;
-		position: absolute;
-		width: 100%;
-	}
-	.maian_mnu ul li {
-		display: block;
-	}
+	.phone{
+			font-size: 20px;
+			text-align: right;
+		}
+	
 }
 
 /* Small Devices, Tablets */
 @media only screen and (max-width : 768px) {
-	.top_links {
-		background-color: #585d61;
-		display: none;
-		margin-top: 15px;
-		padding: 14px;
-		position: absolute;
-		vertical-align: middle;
-		width: 100%;
+	.footer .footer-item:nth-child(2){
+		text-align: center!important;
+		margin-top: 40px;
+	}
+	.footer .footer-item:nth-child(2) .phone{
+		text-align: center!important;
+	}
+	.footer .footer-item:nth-child(1){
+		text-align: center!important;
 	}
 }
 
